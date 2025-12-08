@@ -1,39 +1,54 @@
 import random
 
-print("Rock Paper Scissors Game")
-print("Type Your Choice: Rock / Paper / Scissors")
-print("Type Exit to Terminate the Game")
-
 choices = ["rock", "paper", "scissors"]
-while True:
-    user_choice = input("\nYour Move: ").lower()
 
-    if user_choice == "exit":
-        print("Thanks for Playing!")
-        break
+def get_computer_choice():
+    return random.choice(choices)
 
-    if user_choice not in choices:
-        print("Invalid Choice! Try Again")
-        continue
-
-    computer_choice = random.choice(choices)
-
-    print(f"Computer Chose: {computer_choice}")
-
+def get_result(user_choice, computer_choice):
     if user_choice == computer_choice:
-        print("It's a Draw!")
-    elif (
+            return "draw"
+    if (
         (user_choice == "rock" and computer_choice == "paper") or
         (user_choice == "paper" and computer_choice == "scissors") or
         (user_choice == "scissors" and computer_choice == "rock")
     ):
-        print("Better Luck Next Time!")
-    else:
-        print("You Won!")
+        return "lose"
+    return "win"
 
-    again = input("Want to Play Again? (yes / no): ").lower()
-    if again == "yes":
-        continue
-    else:
-        print("Thanks for Playing!")
-        break
+def run_game():
+    print("Rock Paper Scissors Game")
+    print("Type Your Choice: Rock / Paper / Scissors")
+    print("Type Exit to Terminate the Game")
+
+    while True:
+        user_choice = input("\nYour Move: ").strip().lower()
+
+        if user_choice == "exit":
+            print("Thanks for Playing!")
+            break
+
+        if user_choice not in choices:
+            print("Invalid Choice! Try Again")
+            continue
+
+        computer_choice = get_computer_choice()
+        print(f"Computer Chose: {computer_choice}")
+
+        result = get_result(user_choice, computer_choice)
+
+        if result == "draw":
+            print("It's a Draw!")
+        elif result == "lose":
+            print("Better Luck Next Time")
+        else:
+            print("You Won!")
+
+        again = input("Want to Play Again? (yes/no): ").strip().lower()
+        if again == "yes":
+            continue
+        else:
+            print("Thanks for Playing")
+            break
+
+run_game()
