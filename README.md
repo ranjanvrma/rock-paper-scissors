@@ -13,6 +13,7 @@ In future, this will be upgraded into a full **web app** using Flask, HTML, CSS,
 - **Input Validation:** Handles invalid inputs gracefully and asks the user to try again.
 - **Replay Support:** Option to play multiple rounds without restarting the program.
 - **Exit Anytime:** Type `exit` to quit the game gracefully.
+- **Modular Code Structure:** Game logic is separated into reusable functions for easy extension.
 
 ---
 
@@ -118,7 +119,7 @@ rock-paper-scissors/
 
 ## 💡 Future Enhancements
 
-- Refactor the terminal code into reusable functions.
+- Reuse existing game logic to build a web API backend.
 - Add a basic **Flask backend** to run the game logic on a server.
 - Create a simple **web interface** using HTML, CSS, and JavaScript.
 - Connect the web UI to the backend using API requests.
