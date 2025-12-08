@@ -51,4 +51,5 @@ def run_game():
             print("Thanks for Playing")
             break
 
-run_game()
+if __name__ == "__main__":
+    run_game()
